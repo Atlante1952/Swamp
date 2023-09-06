@@ -92,10 +92,9 @@ minetest.register_globalstep(function(dtime)
         local player_node_pos = {
             x = math.floor(player_pos.x + 0.5),
             y = math.floor(player_pos.y + 0.5) - 1,
-            z = math.floor(player_pos.z + 0.5) 
+            z = math.floor(player_pos.z + 0.5)
         }
         local player_node = minetest.get_node(player_node_pos)
-        local player_name = player:get_player_name()
 
         if player_node.name == "swamp:mud" then
             local two_blocks_down_pos = {x = player_node_pos.x, y = player_node_pos.y - 1, z = player_node_pos.z}
@@ -178,6 +177,16 @@ default.register_mesepost("swamp:mese_post_light_mangrove_wood", {
 	material = "swamp:mangrove_wood",
 })
 
+local function grow_new_mangrove_sapling(pos)
+	if not default.can_grow(pos) then
+		-- try a bit later again
+		minetest.get_node_timer(pos):start(math.random(150, 300))
+		return
+	end
+	minetest.remove_node(pos)
+	minetest.place_schematic({x = pos.x-2, y = pos.y, z = pos.z-3}, minetest.get_modpath("swamp") .. "/schematics/mangrove_tree_1.mts", "0", nil, false)
+end
+
 minetest.register_node("swamp:mangrove_sapling", {
 	description = S("Mangrove Tree Sapling"),
 	drawtype = "plantlike",
@@ -213,16 +222,6 @@ minetest.register_node("swamp:mangrove_sapling", {
 		return itemstack
 	end,
 })
-
-local function grow_new_mangrove_sapling(pos)
-	if not default.can_grow(pos) then
-		-- try a bit later again
-		minetest.get_node_timer(pos):start(math.random(150, 300))
-		return
-	end
-	minetest.remove_node(pos)
-	minetest.place_schematic({x = pos.x-2, y = pos.y, z = pos.z-3}, minetest.get_modpath("swamp") .. "/schematics/mangrove_tree_1.mts", "0", nil, false)
-end
 
 if minetest.get_modpath("bonemeal") then
 	bonemeal:add_sapling({
@@ -316,12 +315,11 @@ minetest.override_item("vessels:glass_bottle",{
 })
 
 minetest.register_on_punchnode(function(pos, node, puncher)
-    local player = puncher:get_player_name()
     local itemstack = puncher:get_wielded_item()
     local itemname = itemstack:get_name()
 
     if itemname == "vessels:glass_bottle" then
-        if node.name == "default:water_source" or "default:river_water_source" or "swamp:swamp_water_source" then    
+        if node.name == "default:water_source" or "default:river_water_source" or "swamp:swamp_water_source" then
             itemstack:take_item()
             puncher:set_wielded_item(itemstack)
             local inv = puncher:get_inventory()
@@ -335,12 +333,11 @@ minetest.register_on_punchnode(function(pos, node, puncher)
 end)
 
 minetest.register_on_punchnode(function(pos, node, puncher)
-    local player = puncher:get_player_name()
     local itemstack = puncher:get_wielded_item()
     local itemname = itemstack:get_name()
 
     if itemname == "swamp:glass_bottle_with_water" then
-        if node.name == "default:water_source" or "default:river_water_source" or "swamp:swamp_water_source" then    
+        if node.name == "default:water_source" or "default:river_water_source" or "swamp:swamp_water_source" then
             itemstack:take_item()
             puncher:set_wielded_item(itemstack)
             local inv = puncher:get_inventory()
@@ -354,13 +351,12 @@ minetest.register_on_punchnode(function(pos, node, puncher)
 end)
 
 minetest.register_on_punchnode(function(pos, node, puncher)
-    local player = puncher:get_player_name()
     local itemstack = puncher:get_wielded_item()
     local itemname = itemstack:get_name()
 
     if itemname == "swamp:glass_bottle_with_water" then
         if node.name == "default:dirt" then
-            minetest.set_node(pos, {name = "swamp:mud"})     
+            minetest.set_node(pos, {name = "swamp:mud"})
             itemstack:take_item()
             puncher:set_wielded_item(itemstack)
             local inv = puncher:get_inventory()
@@ -622,7 +618,6 @@ minetest.register_biome({
         node_dungeon_alt = "swamp:mud_block",
 		vertical_blend = 1,
 		node_river_water = "swamp:swamp_water_source",
-		node_riverbed = "default:gravel",
 		y_max = -1,
 		y_min = -255,
     heat_point = 80,
@@ -718,7 +713,7 @@ minetest.register_decoration({
     sidelen = 16,
     noise_params = {
         offset = 0.25,
-        scale = 0.25,  
+        scale = 0.25,
         spread = {x = 250, y = 250, z = 250},
         seed = 78,
         octaves = 3,
@@ -741,7 +736,7 @@ minetest.register_decoration({
     sidelen = 16,
     noise_params = {
         offset = 0.072,
-        scale = 0.108,  
+        scale = 0.108,
         spread = {x = 250, y = 250, z = 250},
         seed = 78,
         octaves = 3,
@@ -920,5 +915,5 @@ if minetest.global_exists("dungeon_loot") then
 		{name = "swamp:mud", chance = 0.3, count = {3, 12}},
 
 		{name = "swamp:mangrove_leaves", chance = 0.3, count = {2, 8}},
-	})	
+	})
 end
