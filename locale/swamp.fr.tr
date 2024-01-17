@@ -1,4 +1,5 @@
-# textdomain:swamp
+# textdomain: swamp
+
 Dirt with Swamp Grass=Terre avec Herbe des Marais
 Root=Racine
 Root With Mud=Racine avec Boue
@@ -20,5 +21,6 @@ Mangrove Door=Porte de Mangrove
 Muddy Mud=Boue Boueuse
 Water Glass Bottle=Bouteille d'Eau en Verre
 Swamp Water Source=Source d'Eau des Marais
-Swamp Water=Eau des Marais
+Flowing Swamp Water=
 Swamp Vine=Vigne des Marais
+Swamp Water Bucket=

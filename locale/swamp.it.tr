@@ -1,4 +1,5 @@
-# textdomain:swamp
+# textdomain: swamp
+
 Dirt with Swamp Grass=Terra con Erba di Palude
 Root=Radice
 Root With Mud=Radice con Fango
@@ -20,5 +21,6 @@ Mangrove Door=Porta di Mangrovie
 Muddy Mud=Fango Melmoso
 Water Glass Bottle=Boccetta di Acqua di Vetro
 Swamp Water Source=Fonte d'Acqua della Palude
-Swamp Water=Acqua di Palude
+Flowing Swamp Water=
 Swamp Vine=Vite della Palude
+Swamp Water Bucket=

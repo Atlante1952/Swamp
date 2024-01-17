@@ -1,14 +1,10 @@
-name: LuaCheck
+name: luacheck
 on: [push, pull_request]
 jobs:
   luacheck:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Install LuaCheck
-        run: |
-          sudo apt-get update
-          sudo apt-get install lua-check
-      - name: Run LuaCheck
-        run: |
-          luacheck .
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Luacheck
+        uses: lunarmodules/luacheck@master

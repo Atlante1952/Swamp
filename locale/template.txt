@@ -1,4 +1,5 @@
-# textdomain:terraria
+# textdomain: swamp
+
 Dirt with Swamp Grass=
 Root=
 Root With Mud=
@@ -20,5 +21,6 @@ Mangrove Door=
 Muddy Mud=
 Water Glass Bottle=
 Swamp Water Source=
-Swamp Water=
+Flowing Swamp Water=
 Swamp Vine=
+Swamp Water Bucket=
