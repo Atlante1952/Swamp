@@ -1,4 +1,5 @@
-# textdomain:swamp
+# textdomain: swamp
+
 Dirt with Swamp Grass=Tierra con Hierba de Pantano
 Root=Raíz
 Root With Mud=Raíz con Barro
@@ -20,5 +21,6 @@ Mangrove Door=Puerta de Manglar
 Muddy Mud=Barro Sucio
 Water Glass Bottle=Botella de Agua de Vidrio
 Swamp Water Source=Fuente de Agua de Pantano
-Swamp Water=Agua de Pantano
+Flowing Swamp Water=Fluído de Agua de Pantano
 Swamp Vine=Vid de Pantano
+Swamp Water Bucket=Cubo con Agua de Pantano

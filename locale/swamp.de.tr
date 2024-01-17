@@ -1,4 +1,5 @@
-# textdomain:swamp
+# textdomain: swamp
+
 Dirt with Swamp Grass=Erde mit Sumpfgras
 Root=Wurzel
 Root With Mud=Wurzel mit Schlamm
@@ -20,5 +21,5 @@ Mangrove Door=Mangroventür
 Muddy Mud=Schlammiger Schlamm
 Water Glass Bottle=Wasserglasflasche
 Swamp Water Source=Sumpfwasserquelle
-Swamp Water=Sumpfwasser
+Flowing Swamp Water=
 Swamp Vine=Sumpf-Rebe
