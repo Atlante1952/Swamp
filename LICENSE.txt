@@ -19,7 +19,7 @@ License along with this library; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 USA
 
-Licenses of media (textures, sounds, schematics)
+Licenses of media (textures, schematics)
 ----------------------------------------------------
 
 Attribution 4.0 International (CC BY 4.0)
@@ -55,7 +55,17 @@ No warranties are given. The license may not give you all of the permissions nec
 your intended use. For example, other rights such as publicity, privacy, or moral rights
 may limit how you use the material.
 
-TODO: Add texture and schematic licenses.
+-------Shematics-License------
+GNU Lesser General Public License, version 2.1
+Copyright (C) 2023-2024 Atlante (AtlanteWork@gmail.com) and contributors
+
+mangrove_tree_1.mts by Atlante
+mangrove_tree_1_3.mts by Atlante
+mangrove_tree_2.mts by Atlante
+mangrove_tree_2_2.mts by Atlante
+swamp_source_1.mts by Atlante
+swamp_source_2.mts by Atlante
+
 
 Authors
 -------
