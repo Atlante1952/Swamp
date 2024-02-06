@@ -22,6 +22,9 @@ local S = minetest.get_translator(minetest.get_current_modname())
 
 function swamp.globalstep(dtime)
     for _, player in ipairs(minetest.get_connected_players()) do
+        local speed = player:get_physics_override().speed
+        local jump = player:get_physics_override().jump
+
         local player_pos = player:get_pos()
         local player_node_pos = {
             x = math.floor(player_pos.x + 0.5),
@@ -35,15 +38,10 @@ function swamp.globalstep(dtime)
             local two_blocks_down_node = minetest.get_node(two_blocks_down_pos)
 
             if two_blocks_down_node.name == "swamp:mud" then
-                player:set_physics_override({speed = 0.70})
-                player:set_physics_override({jump = 0.95})
+                player:set_physics_override({speed = 0.70, jump = 0.95})
             else
-                player:set_physics_override({speed = 1.0})
-                player:set_physics_override({jump = 1.0})
+                player:set_physics_override({speed = speed, jump = jump})
             end
-        else
-            player:set_physics_override({speed = 1.0})
-            player:set_physics_override({jump = 1.0})
         end
     end
 end
