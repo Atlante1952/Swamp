@@ -18,7 +18,10 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
 USA
 --]]
 
-local S = minetest.get_translator(minetest.get_current_modname())
+-- This will not be available after load time
+local MODNAME = minetest.get_current_modname()
+local MODPATH = minetest.get_modpath(MODNAME)
+local S = minetest.get_translator(MODNAME)
 
 minetest.register_node("swamp:dirt_with_swamp_grass", {
 	description = S("Dirt with Swamp Grass"),
@@ -139,7 +142,9 @@ function swamp.grow_new_mangrove_sapling(pos)
 		return
 	end
 	minetest.remove_node(pos)
-	minetest.place_schematic({x = pos.x-2, y = pos.y, z = pos.z-3}, minetest.get_modpath(minetest.get_current_modname()) .. "/schematics/mangrove_tree_1.mts", "0", nil, false)
+	minetest.place_schematic({x = pos.x-2, y = pos.y, z = pos.z-3},
+		MODPATH .. "/schematics/mangrove_tree_1.mts",
+		"random", nil, false)
 end
 
 minetest.register_node("swamp:mangrove_sapling", {
