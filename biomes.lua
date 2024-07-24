@@ -61,7 +61,7 @@ minetest.register_biome({
     node_dungeon = "swamp:mud_brick",
     node_dungeon_alt = "swamp:mud_block",
 	y_max = -256,
-	y_min = -31000,
+	y_min = -400,
     heat_point = 80,
     humidity_point = 98,
 })
